@@ -991,90 +991,220 @@ body {
     color: #ff6b6b !important;
 }
 
-/* Responsive Design */
+/* =========================
+   Mobile improvements (copy/append)
+   ========================= */
+
+/* General mobile layout tweaks */
 @media (max-width: 768px) {
+    /* Header: compactar y centrar elementos */
+    .header {
+        padding: 1rem;
+    }
+
     .header-content {
-        flex-direction: column;
-        gap: 1rem;
+        max-width: 100%;
+        padding: 0 1rem;
     }
-    
+
     .nav-section {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .search-input {
-        width: 150px;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .brand-filters {
-        flex-direction: column;
+        gap: 0.8rem;
         align-items: center;
     }
-    
-    .why-choose-us {
-        padding: 2.5rem 1.5rem;
+
+    /* Buscar: ocupar ancho completo y ser accesible */
+    .search-section {
+        min-width: 0;
+        width: 100%;
+        max-width: 520px;
+        padding: 0.6rem 0.8rem;
+        border-radius: 10px;
     }
-    
-    .why-title {
-        font-size: 2.2rem;
+
+    .search-input {
+        font-size: 0.95rem;
     }
-    
-    .why-description {
-        font-size: 1.1rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        padding: 2rem 1rem 1rem;
-    }
-    
-    .footer-title {
-        font-size: 1.1rem;
-    }
-    
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .product-detail {
-        grid-template-columns: 1fr;
-    }
-    
-    .filters-section {
+
+    /* Hero: apilar verticalmente y reducir altura para móviles */
+    .hero-section {
         flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        min-height: auto;
         align-items: stretch;
     }
-    
-    .cart-actions {
-        flex-direction: column;
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0;
     }
-    
-    .back-btn {
-        top: 80px;
-        left: 1rem;
+
+    .hero-title {
+        font-size: 1.9rem;
+        line-height: 1.15;
+        margin-bottom: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-btn {
+        padding: 0.9rem 1.6rem;
+        font-size: 0.95rem;
+    }
+
+    /* Slider: reducir altura y quitar margen lateral */
+    .hero-slider {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .slider-container {
+        height: 220px;
+        border-radius: 10px;
+    }
+
+    .slider-track, .slider-slide, .slider-slide img {
+        height: 100%;
+    }
+
+    .slider-slide img {
+        object-fit: cover;
+    }
+
+    /* Dots más grandes para touch */
+    .hero-dots {
+        gap: 0.6rem;
+    }
+    .dot {
+        height: 4px;
+    }
+
+    /* Brand filters y botones: compactos */
+    .brand-filters {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .brand-btn {
+        padding: 0.9rem 1.4rem;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    /* Productos: tarjetas a toda la anchura y menos altura de imagen */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .product-card {
+        border-radius: 12px;
+    }
+
+    .product-image {
+        height: 160px;
+    }
+
+    .product-info {
+        padding: 0.9rem;
+    }
+
+    .details-btn, .add-to-cart-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    /* Footer: espaciado reducido */
+    .footer-content {
+        padding: 2rem 1rem 1rem;
+    }
+
+    /* Modal: tamaño móvil */
+    .modal-content {
+        max-width: 96%;
+        margin: 3% auto;
+        border-radius: 12px;
     }
 }
 
+/* Extra small phones */
 @media (max-width: 480px) {
-    .main-content {
-        padding: 1rem;
+    body {
+        font-size: 14px;
     }
-    
-    .hero-section {
-        padding: 2rem 1rem;
+
+    .header {
+        padding: 0.8rem;
     }
-    
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .nav-section {
+        gap: 0.5rem;
+    }
+
+    .search-section {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .search-input {
+        font-size: 0.9rem;
+    }
+
     .hero-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        letter-spacing: 1.5px;
     }
-    
-    .modal-content {
-        width: 95%;
-        margin: 2% auto;
+
+    .slider-container {
+        height: 180px;
+    }
+
+    .product-image {
+        height: 140px;
+    }
+
+    .product-info h1,
+    .product-info p {
+        font-size: 1rem;
+    }
+
+    .product-info .product-price {
+        font-size: 1.4rem;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 0.85rem;
+        font-size: 0.95rem;
+    }
+
+    .back-btn {
+        top: 70px;
+        left: 0.8rem;
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    /* Aumentar gaps de botones para facilidad de toque */
+    .product-actions {
+        gap: 0.8rem;
+    }
+}
+
+/* Small improvement for very narrow viewports to avoid overflow */
+@media (max-width: 360px) {
+    .search-input::placeholder {
+        font-size: 0.85rem;
+    }
+    .brand-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
     }
 }
