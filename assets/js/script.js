@@ -216,8 +216,20 @@ function loadCatalogProducts() {
 function showProductDetail(productId, source = 'home') {
     // Guardar el ID del producto en localStorage para la página de detalles
     localStorage.setItem('selectedProductId', productId);
+
+    // Construir la URL correctamente dependiendo de si ya estamos en /pages/
+    const currentPath = window.location.pathname;
+    let targetUrl;
+    if (currentPath.includes('/pages/')) {
+        // Ya estamos dentro de pages/ (ej: /ForceSport/pages/catalog.html)
+        targetUrl = `detail.html?id=${productId}&src=${source}`;
+    } else {
+        // Desde la raíz (ej: /ForceSport/index.html)
+        targetUrl = `pages/detail.html?id=${productId}&src=${source}`;
+    }
+
     // Redirigir a la página de detalles
-    window.location.href = `pages/detail.html?id=${productId}&src=${source}`;
+    window.location.href = targetUrl;
 }
 
 function loadProductDetailFromURL() {
@@ -231,14 +243,18 @@ function loadProductDetailFromURL() {
             productId = parseInt(savedId);
         } else {
             // Redirigir al catálogo si no hay producto seleccionado
-            window.location.href = 'pages/catalog.html';
+            const currentPath = window.location.pathname;
+            const catalogUrl = currentPath.includes('/pages/') ? 'catalog.html' : 'pages/catalog.html';
+            window.location.href = catalogUrl;
             return;
         }
     }
     
     const product = products.find(p => p.id === productId);
     if (!product) {
-        window.location.href = 'pages/catalog.html';
+        const currentPath = window.location.pathname;
+        const catalogUrl = currentPath.includes('/pages/') ? 'catalog.html' : 'pages/catalog.html';
+        window.location.href = catalogUrl;
         return;
     }
     
