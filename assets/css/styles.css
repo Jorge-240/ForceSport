@@ -12,6 +12,19 @@ body {
     line-height: 1.6;
 }
 
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex
+;
+    flex-direction: column;
+}
+
 /* Header Styles */
 .header {
     background-color: #1a1a1a;
@@ -682,9 +695,9 @@ body {
 }
 
 .cart-item-image {
-    width: 60px;
-    height: 60px;
-    background-color: white;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(0, 0, 0);
     border-radius: 5px;
     padding: 0.5rem;
     display: flex;

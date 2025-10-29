@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,89 +8,143 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo-section">
-                <div class="logo">ForceSport</div>
-            </div>
-            <nav class="nav-section">
-                <a href="../index.html" class="nav-btn">Home</a>
-                <a href="catalog.html" class="nav-btn">Productos</a>
-                <div class="search-section">
-                    <input type="text" placeholder="Buscar producto" class="search-input">
-                    <button class="search-btn">🔍</button>
-                </div>
-                <div class="cart-section">
-                    <button class="cart-btn" id="cartBtn">
-                        🛒 <span class="cart-count" id="cartCount">0</span>
-                    </button>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div class="main-container">
+        <!-- Wrapper principal (tarjeta) -->
+        <div class="site-wrapper">
+            <div class="site-card">
 
-    <!-- Back Button -->
-    <a href="catalog.html" id="backLink" class="back-btn">←</a>
+                <!-- Header -->
+                <header class="header">
+                    <div class="header-content">
+                        <div class="logo-section">
+                            <div class="logo">ForceSport</div>
+                        </div>
+                        <nav class="nav-section">
+                            <a href="../index.html" class="nav-btn">Home</a>
+                            <a href="catalog.html" class="nav-btn">Productos</a>
+                            <div class="search-section">
+                                <input type="text" placeholder="Buscar producto" class="search-input">
+                                <button class="search-btn">🔍</button>
+                            </div>
+                            <div class="cart-section">
+                                <button class="cart-btn" id="cartBtn">
+                                    🛒 <span class="cart-count" id="cartCount">0</span>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="product-detail">
-            <div class="product-image">
-                <img id="detailImage" src="" alt="">
-            </div>
-            <div class="product-info">
-                <h1 id="detailName"></h1>
-                <p id="detailDescription"></p>
-                <div class="product-price" id="detailPrice"></div>
-                <button class="add-to-cart-btn" id="addToCartDetail">AGREGAR AL CARRITO</button>
-            </div>
-        </div>
-    </main>
+                <!-- Back Button -->
+                <a href="catalog.html" id="backLink" class="back-btn">←</a>
 
-    <!-- Cart Modal -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Carrito de Compras</h2>
-                <button class="close-btn" id="closeCart">×</button>
-            </div>
-            <div class="cart-items" id="cartItems">
-                <!-- Cart items will be loaded here -->
-            </div>
-            <div class="cart-summary">
-                <div class="summary-row">
-                    <span>Subtotal:</span>
-                    <span id="subtotal">$0</span>
+                <!-- Main Content -->
+                <main class="main-content">
+                    <div class="product-detail">
+                        <div class="product-image">
+                            <img id="detailImage" src="" alt="">
+                        </div>
+                        <div class="product-info">
+                            <h1 id="detailName"></h1>
+                            <p id="detailDescription"></p>
+                            <div class="product-price" id="detailPrice"></div>
+                            <button class="add-to-cart-btn" id="addToCartDetail">AGREGAR AL CARRITO</button>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="footer-content">
+                        <div class="footer-column">
+                            <div class="footer-title">
+                                <span class="footer-icon">👟</span>
+                                ForceSport
+                            </div>
+                            <p class="footer-description">
+                                Tu tienda de confianza para zapatos deportivos de alta calidad.
+                                Ofrecemos las mejores marcas con precios competitivos y envío rápido.
+                            </p>
+                        </div>
+
+                        <div class="footer-column">
+                            <div class="footer-title">
+                                <span class="footer-icon">🔗</span>
+                                Contacto
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link instagram">Instagram</a>
+                                <a href="#" class="social-link facebook">Facebook</a>
+                                <a href="#" class="social-link whatsapp">WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-column">
+                            <div class="footer-title">
+                                <span class="footer-icon">🎧</span>
+                                Soporte
+                            </div>
+                            <div class="support-info">
+                                <p>Teléfono: +57 300 123 4567</p>
+                                <p>Horario: 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <div class="footer-divider"></div>
+                        <p class="footer-copyright">© 2025 ForceSport. Todos los derechos reservados.</p>
+                    </div>
+                </footer>
+
+            </div> <!-- /.site-card -->
+        </div> <!-- /.site-wrapper -->
+
+        <!-- Cart Modal (fuera de la tarjeta para que cubra toda la pantalla) -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Carrito de Compras</h2>
+                    <button class="close-btn" id="closeCart">×</button>
                 </div>
-                <div class="summary-row">
-                    <span>Descuento (10%):</span>
-                    <span id="discount">$0</span>
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be loaded here -->
                 </div>
-                <div class="summary-row">
-                    <span>IVA (19%):</span>
-                    <span id="tax">$0</span>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Descuento (10%):</span>
+                        <span id="discount">$0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>IVA (19%):</span>
+                        <span id="tax">$0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0</span>
+                    </div>
                 </div>
-                <div class="summary-row total">
-                    <span>Total:</span>
-                    <span id="total">$0</span>
+                <div class="cart-actions">
+                    <button class="btn-secondary" id="continueShopping">Agregar más productos</button>
+                    <button class="btn-primary" id="checkout" onclick="checkout()">Realizar pago</button>
                 </div>
-            </div>
-            <div class="cart-actions">
-                <button class="btn-secondary" id="continueShopping">Agregar más productos</button>
-                <button class="btn-primary" id="checkout" onclick="checkout()">Realizar pago</button>
             </div>
         </div>
     </div>
-
     <script src="../assets/js/script.js"></script>
     <script>
         // Cargar detalles del producto
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadProductDetailFromURL();
             updateCartCount();
         });
     </script>
 </body>
+
 </html>
