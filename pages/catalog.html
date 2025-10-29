@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - ForceSport</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">ForceSport</div>
+            </div>
+            <nav class="nav-section">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <div class="search-section">
+                    <input type="text" placeholder="Buscar producto" class="search-input" id="searchInput">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <div class="cart-section">
+                    <button class="cart-btn" id="cartBtn">
+                        🛒 <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <a href="../index.html" class="back-btn">←</a>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filter-group">
+                <label>Marca:</label>
+                <select id="brandFilter">
+                    <option value="">Todas las marcas</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="nike">Nike</option>
+                    <option value="reebok">Reebok</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Tipo:</label>
+                <select id="typeFilter">
+                    <option value="">Todos los tipos</option>
+                    <option value="running">Running</option>
+                    <option value="gym">Gym</option>
+                    <option value="futbol">basketball</option>
+                    <option value="casual">Casual</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Buscar:</label>
+                <input type="text" id="searchFilter" placeholder="Nombre o modelo">
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="catalog-products">
+            <div class="products-grid" id="catalogProducts">
+                <!-- Products will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Carrito de Compras</h2>
+                <button class="close-btn" id="closeCart">×</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Descuento (10%):</span>
+                    <span id="discount">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>IVA (19%):</span>
+                    <span id="tax">$0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">$0</span>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-secondary" id="continueShopping">Agregar más productos</button>
+                <button class="btn-primary" id="checkout" onclick="checkout()">Realizar pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // Cargar productos del catálogo
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCatalogProducts();
+            updateCartCount();
+            setupCatalogFilters();
+            
+            // Aplicar filtro de marca desde URL si existe
+            const urlParams = new URLSearchParams(window.location.search);
+            const brand = urlParams.get('brand');
+            if (brand) {
+                document.getElementById('brandFilter').value = brand;
+                filterProducts();
+            }
+        });
+    </script>
+</body>
+</html>
